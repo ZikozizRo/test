@@ -1,0 +1,8 @@
+prontera,156,191,4	script	Healer	800,{
+
+	percentheal 100, 100;
+	specialeffect2 EF_HEAL;
+	dispbottom "¡Tu HP y SP han sido restaurados por completo!";
+	
+	end;
+}
