@@ -1,14 +1,31 @@
-prontera,156,191,4	script	Curador Instantáneo	810,{
+prontera,156,191,4	script	Healer	850,{
 
-	if (Zeny < 100000) {
-		dispbottom "No tienes suficiente dinero. La curación cuesta 100,000 Zeny.";
-		end;
-	}
-
-	Zeny -= 100000;
-	percentheal 100, 100;
-	specialeffect2 EF_HEAL;
-	dispbottom "¡Tu HP y SP han sido restaurados por 100,000 Zeny!";
+	mes "[Curador y Herrero]";
+	mes "¡Hola, ^0000FF" + strcharinfo(0) + "^000000!";
+	mes "Bienvenido al servidor ^FF0000Zikoziz RO^000000.";
+	mes "¿En qué te puedo ayudar hoy?";
 	
-	end;
+	switch(select("Cúrame (100,000 Zeny):Reparar mi equipo:Nada, gracias")) {
+		
+		case 1:
+			if (Zeny < 100000) {
+				mes "No tienes suficiente dinero. La curación cuesta 100,000 Zeny.";
+				close;
+			}
+			Zeny -= 100000;
+			percentheal 100, 100;
+			specialeffect2 EF_HEAL;
+			mes "¡Tu HP y SP han sido restaurados por completo!";
+			close;
+			
+		case 2:
+			mes "Déjame revisar tu inventario para ver si hay algún equipo roto...";
+			close2;
+			repair;
+			end;
+			
+		case 3:
+			mes "Vuelve cuando lo necesites. ¡Mucha suerte!";
+			close;
+	}
 }
