@@ -1,8 +1,14 @@
-prontera,156,191,4	script	Healer	800,{
+prontera,156,191,4	script	Curador Instantáneo	810,{
 
+	if (Zeny < 100000) {
+		dispbottom "No tienes suficiente dinero. La curación cuesta 100,000 Zeny.";
+		end;
+	}
+
+	Zeny -= 100000;
 	percentheal 100, 100;
 	specialeffect2 EF_HEAL;
-	dispbottom "¡Tu HP y SP han sido restaurados por completo!";
+	dispbottom "¡Tu HP y SP han sido restaurados por 100,000 Zeny!";
 	
 	end;
 }
